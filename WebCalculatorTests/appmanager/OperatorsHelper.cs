@@ -20,6 +20,37 @@ namespace WebCalculatorTests
             driver.FindElement(By.Id("clear")).Click();
         }
 
+        /// <summary>
+        /// Clicks random operator and returns clicked operator as a string
+        /// </summary>
+        /// <returns></returns>
+        public string ClickRandomOperator()
+        {
+            Random rnd = new Random();
+            int randomOperatorIndex = rnd.Next(GetOperatorsCollection().Count);
+            GetOperatorsCollection()[randomOperatorIndex].Click();
+            return GetOperatorsCollection()[randomOperatorIndex].Text;
+        }
+        
+        /// <summary>
+        /// Performs mathematical operations using the operator returned as a string from the calculator
+        /// </summary>
+        /// <param name="firstOperand"></param>
+        /// <param name="randomOperator"></param>
+        /// <param name="secondOperand"></param>
+        /// <returns>The result of the operation</returns>
+        public double PerformMathOperation(double firstOperand, string randomOperator, double secondOperand)
+        {
+            switch (randomOperator)
+            {
+                case "+": return firstOperand + secondOperand;
+                case "-": return firstOperand - secondOperand;
+                case "×": return firstOperand * secondOperand;
+                case "÷": return firstOperand / secondOperand;
+                default: throw new Exception("The operator isn't found");
+            }
+        }
+
         public IList<IWebElement> GetOperatorsCollection()
         {
             return driver.FindElements(By.XPath("//div[@class='operators']/div"));

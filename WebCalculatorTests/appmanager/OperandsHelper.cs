@@ -16,6 +16,8 @@ namespace WebCalculatorTests
 
         }
 
+        
+
         /// <summary>
         /// //Selects all the digit buttons (point is not included)
         /// </summary>
@@ -25,10 +27,7 @@ namespace WebCalculatorTests
             return driver.FindElements(By.XPath("(//div[@class='numbers']/div)[position()<last()-1]"));
         }
 
-        public void PressPointButton()
-        {
-            driver.FindElement(By.XPath("(//div[@class='numbers'][position() > last() - 2])[last()]")).Click();
-        }
+        
 
         /// <summary>
         /// //Selects all the digit buttons (point is included)
@@ -50,7 +49,7 @@ namespace WebCalculatorTests
             double operandFromInput;
 
             //Getting initial input
-            string initialInputContent = GetInputContent();
+            string initialInputContent = GetInputContentAsString();
             string enteredNumberAsString = ""; 
             int pointCounter = 0;
             Random rand = new Random();
@@ -74,7 +73,7 @@ namespace WebCalculatorTests
             }
 
             //Getting final input
-            string finalInputContent = GetInputContent();
+            string finalInputContent = GetInputContentAsString();
             try
             {
                 //Parses the string in the input field returning the number put in last
@@ -99,7 +98,7 @@ namespace WebCalculatorTests
             double operandFromInput;
 
             //Getting initial input
-            string initialInputContent = GetInputContent();
+            string initialInputContent = GetInputContentAsString();
             Random rand = new Random();
             for (int i = 0; i < 8; i++)
             {
@@ -107,7 +106,7 @@ namespace WebCalculatorTests
                 collectionOfNumberButtons[index].Click();
             }
             //Getting final input
-            string finalInputContent = GetInputContent();
+            string finalInputContent = GetInputContentAsString();
             try
             {
                 //Parses the string in the input field returning the number put in last
@@ -125,7 +124,7 @@ namespace WebCalculatorTests
         /// Gets the content of the input field in string format
         /// </summary>
         /// <returns></returns>
-        private string GetInputContent()
+        public string GetInputContentAsString()
         {
             return driver.FindElement(By.Id("input")).Text;
         }
@@ -136,7 +135,7 @@ namespace WebCalculatorTests
         /// <returns></returns>
         public double GetInput()
         {
-            string result = GetInputContent();
+            string result = GetInputContentAsString();
             double number;
             if (double.TryParse(result, NumberStyles.Number, CultureInfo.InvariantCulture, out number))
             {
@@ -146,6 +145,16 @@ namespace WebCalculatorTests
             {
                 return 0.0;
             }
+        }
+
+        public void PressPointButton()
+        {
+            driver.FindElement(By.XPath("(//div[@class='numbers'][position() > last() - 2])[last()]")).Click();
+        }
+
+        public void ClickZeroButton()
+        {
+            GetCollectionOfDigitButtonsPointExcl()[9].Click();
         }
     }
 }

@@ -83,6 +83,8 @@
     <Compile Include="appmanager\HelperBase.cs" />
     <Compile Include="appmanager\OperandsHelper.cs" />
     <Compile Include="appmanager\OperatorsHelper.cs" />
+    <Compile Include="tests\Division by zero.cs" />
+    <Compile Include="tests\Mathematical Operation Over Result.cs" />
     <Compile Include="tests\Simple mathematical operations\Addition test.cs" />
     <Compile Include="tests\ClearButton test.cs" />
     <Compile Include="tests\Simple mathematical operations\Division test.cs" />
