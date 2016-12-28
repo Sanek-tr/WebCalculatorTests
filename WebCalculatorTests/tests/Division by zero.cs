@@ -9,6 +9,9 @@ namespace WebCalculatorTests.tests
 {
     public class Division_by_zero : TestBase
     {
+        /// <summary>
+        /// Check if division by zero returns "Infinity"
+        /// </summary>
         [Test]
         public void DivideByZero()
         {
