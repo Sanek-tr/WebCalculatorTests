@@ -9,7 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-//Test comment (checking TeamCity binding)
+//Test comment (checking TeamCity binding) 2
 namespace WebCalculatorTests
 {
     public class ApplicationManager
