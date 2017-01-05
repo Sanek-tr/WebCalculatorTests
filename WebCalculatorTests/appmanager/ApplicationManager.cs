@@ -24,7 +24,7 @@ namespace WebCalculatorTests
         private ApplicationManager()
 
         {
-            driver = new ChromeDriver(@"D:\\Проги\");
+            driver = new ChromeDriver(@"D:\\Soft\");
             baseURL = "http://test.job.klika-tech.com.s3-website.eu-central-1.amazonaws.com/";
             driver.Navigate().GoToUrl(baseURL);
             operands = new OperandsHelper(this);
