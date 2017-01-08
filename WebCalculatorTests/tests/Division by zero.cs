@@ -20,7 +20,7 @@ namespace WebCalculatorTests.tests
             app.Operands.ClickZeroButton();
             app.Operators.ClickEqualsButton();
             string inputContent = app.Operands.GetInputContentAsString();
-            Assert.AreEqual(inputContent, "Infinity1");
+            Assert.AreEqual(inputContent, "Infinity");
         }
     }
 }
